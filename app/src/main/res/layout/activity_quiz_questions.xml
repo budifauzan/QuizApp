@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuizQuestionsActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/tv_activity_quiz_question"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="What country does this flag belong to?" />
+
+        <ImageView
+            android:id="@+id/iv_activity_quiz_image"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintDimensionRatio="w,9:16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_activity_quiz_question"
+            app:srcCompat="@drawable/ic_flag_of_argentina" />
+
+        <ProgressBar
+            android:id="@+id/pb_activity_quiz_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:indeterminate="false"
+            android:max="10"
+            android:progress="0"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_activity_quiz_progress"
+            app:layout_constraintEnd_toStartOf="@+id/tv_activity_quiz_progress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_activity_quiz_progress" />
+
+        <TextView
+            android:id="@+id/tv_activity_quiz_progress"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_activity_quiz_image"
+            tools:text="1/10" />
+
+        <Button
+            android:id="@+id/btn_activity_quiz_submit"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:text="submit"
+            app:layout_constraintEnd_toEndOf="@+id/tv_activity_quiz_option4"
+            app:layout_constraintStart_toStartOf="@+id/tv_activity_quiz_option4"
+            app:layout_constraintTop_toBottomOf="@+id/tv_activity_quiz_option4" />
+
+        <TextView
+            android:id="@+id/tv_activity_quiz_option1"
+            style="@style/TextAppearance.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/options_bg"
+            android:gravity="center"
+            android:text="Option 1"
+            android:textColor="@color/design_default_color_primary"
+            app:layout_constraintEnd_toEndOf="@+id/tv_activity_quiz_progress"
+            app:layout_constraintStart_toStartOf="@+id/pb_activity_quiz_progress"
+            app:layout_constraintTop_toBottomOf="@+id/pb_activity_quiz_progress" />
+
+        <TextView
+            android:id="@+id/tv_activity_quiz_option2"
+            style="@style/TextAppearance.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/options_bg"
+            android:gravity="center"
+            android:text="option 2"
+            android:textColor="@color/design_default_color_primary"
+            app:layout_constraintEnd_toEndOf="@+id/tv_activity_quiz_option1"
+            app:layout_constraintStart_toStartOf="@+id/tv_activity_quiz_option1"
+            app:layout_constraintTop_toBottomOf="@+id/tv_activity_quiz_option1" />
+
+        <TextView
+            android:id="@+id/tv_activity_quiz_option3"
+            style="@style/TextAppearance.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/options_bg"
+            android:gravity="center"
+            android:text="option 3"
+            android:textColor="@color/design_default_color_primary"
+            app:layout_constraintEnd_toEndOf="@+id/tv_activity_quiz_option2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_activity_quiz_option2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_activity_quiz_option2" />
+
+        <TextView
+            android:id="@+id/tv_activity_quiz_option4"
+            style="@style/TextAppearance.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/options_bg"
+            android:gravity="center"
+            android:text="option 4"
+            android:textColor="@color/design_default_color_primary"
+            app:layout_constraintEnd_toEndOf="@+id/tv_activity_quiz_option3"
+            app:layout_constraintStart_toStartOf="@+id/tv_activity_quiz_option3"
+            app:layout_constraintTop_toBottomOf="@+id/tv_activity_quiz_option3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
