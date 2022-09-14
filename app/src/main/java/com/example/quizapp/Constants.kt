@@ -12,7 +12,7 @@ object Constants {
                 "Argentina",
                 "India",
                 "Canada",
-                "Argentina"
+                2
             )
         )
         questions.add(
@@ -24,7 +24,7 @@ object Constants {
                 "Turkey",
                 "Italy",
                 "Zimbabwe",
-                "Australia"
+                1
             )
         )
         questions.add(
@@ -36,7 +36,7 @@ object Constants {
                 "Malaysia",
                 "Singapore",
                 "Belgium",
-                "Belgium"
+                4
             )
         )
         questions.add(
@@ -48,7 +48,7 @@ object Constants {
                 "Brazil",
                 "Germany",
                 "Uruguay",
-                "Brazil"
+                2
             )
         )
         questions.add(
@@ -60,7 +60,7 @@ object Constants {
                 "Philipine",
                 "Denmark",
                 "New Zealand",
-                "Denmark"
+                3
             )
         )
         questions.add(
@@ -72,7 +72,7 @@ object Constants {
                 "Indonesia",
                 "Taiwan",
                 "Mexico",
-                "Fiji"
+                1
             )
         )
         questions.add(
@@ -84,7 +84,7 @@ object Constants {
                 "Vietnam",
                 "England",
                 "Germany",
-                "Germany"
+                4
             )
         )
         questions.add(
@@ -96,7 +96,7 @@ object Constants {
                 "Qatar",
                 "Russia",
                 "Canada",
-                "India"
+                1
             )
         )
         questions.add(
@@ -108,7 +108,7 @@ object Constants {
                 "Indonesia",
                 "Kuwait",
                 "Monaco",
-                "Kuwait"
+                3
             )
         )
         questions.add(
@@ -120,7 +120,7 @@ object Constants {
                 "New Zealand",
                 "Japan",
                 "South Korea",
-                "New Zealand"
+                2
             )
         )
 

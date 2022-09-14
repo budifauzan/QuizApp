@@ -33,6 +33,57 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         setOnClick()
     }
 
+    override fun onClick(view: View?) {
+        when (view?.id) {
+            R.id.tv_activity_quiz_option1 -> {
+                tvOption1?.let {
+                    selectedOptionView(it, 1)
+                }
+            }
+            R.id.tv_activity_quiz_option2 -> {
+                tvOption2?.let {
+                    selectedOptionView(it, 2)
+                }
+            }
+            R.id.tv_activity_quiz_option3 -> {
+                tvOption3?.let {
+                    selectedOptionView(it, 3)
+                }
+            }
+            R.id.tv_activity_quiz_option4 -> {
+                tvOption4?.let {
+                    selectedOptionView(it, 4)
+                }
+            }
+            R.id.btn_activity_quiz_submit -> {
+                if (selectedOption == 0) {
+                    index++
+                    when {
+                        index < questions.size -> {
+                            setViews()
+                        }
+                        else -> {
+                            Toast.makeText(this, "Yay", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } else {
+                    if (questions[index].correctAnswer != selectedOption) {
+                        answerView(selectedOption, R.drawable.options_bg_wrong)
+                    }
+                    answerView(questions[index].correctAnswer, R.drawable.options_bg_correct)
+
+                    if (index == questions.size - 1) {
+                        btnSubmit?.text = "FINISH"
+                    } else {
+                        btnSubmit?.text = "NEXT QUESTION"
+                    }
+
+                    selectedOption = 0
+                }
+            }
+        }
+    }
+
     private fun initializeViews() {
         tvQuestion = findViewById(R.id.tv_activity_quiz_question)
         ivImage = findViewById(R.id.iv_activity_quiz_image)
@@ -46,6 +97,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setViews() {
+        defaultOptionsView()
         tvQuestion?.text = questions[index].question
         ivImage?.setImageResource(questions[index].imageId)
         pbProgress?.progress = index + 1
@@ -54,12 +106,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tvOption2?.text = questions[index].option2
         tvOption3?.text = questions[index].option3
         tvOption4?.text = questions[index].option4
-
-        if (index == questions.size - 1) {
-            btnSubmit?.text = "FINISH"
-        } else {
-            btnSubmit?.text = "SUBMIT"
-        }
+        btnSubmit?.text = "SUBMIT"
     }
 
     private fun setOnClick() {
@@ -67,6 +114,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tvOption2?.setOnClickListener(this)
         tvOption3?.setOnClickListener(this)
         tvOption4?.setOnClickListener(this)
+        btnSubmit?.setOnClickListener(this)
     }
 
     private fun defaultOptionsView() {
@@ -98,32 +146,26 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tv.background = ContextCompat.getDrawable(this, R.drawable.options_bg_selected)
     }
 
-    override fun onClick(view: View?) {
-        when (view?.id) {
-            R.id.tv_activity_quiz_option1 -> {
-                tvOption1?.let {
-                    selectedOptionView(it, 1)
-                }
+    private fun answerView(answer: Int, drawable: Int) {
+        when (answer) {
+            1 -> {
+                tvOption1?.background =
+                    ContextCompat.getDrawable(this, drawable)
             }
-            R.id.tv_activity_quiz_option2 -> {
-                tvOption2?.let {
-                    selectedOptionView(it, 2)
-                }
+            2 -> {
+                tvOption2?.background =
+                    ContextCompat.getDrawable(this, drawable)
             }
-            R.id.tv_activity_quiz_option3 -> {
-                tvOption3?.let {
-                    selectedOptionView(it, 3)
-                }
+            3 -> {
+                tvOption3?.background =
+                    ContextCompat.getDrawable(this, drawable)
             }
-            R.id.tv_activity_quiz_option4 -> {
-                tvOption4?.let {
-                    selectedOptionView(it, 4)
-                }
-            }
-            R.id.btn_activity_quiz_submit -> {
-                // TODO "implement submit"
+            4 -> {
+                tvOption4?.background =
+                    ContextCompat.getDrawable(this, drawable)
             }
         }
     }
+
 
 }
