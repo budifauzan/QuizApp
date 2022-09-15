@@ -1,5 +1,6 @@
 package com.example.quizapp
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -22,8 +23,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
     private val questions = Constants.getQuestions()
     private var index = 0
-    private var score = 0
     private var selectedOption = 0
+    private var userName: String? = null
+    private var correctAnswers = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         initializeViews()
         setViews()
         setOnClick()
+        userName = intent.getStringExtra(Constants.USER_NAME)
     }
 
     override fun onClick(view: View?) {
@@ -63,15 +66,21 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                             setViews()
                         }
                         else -> {
-                            Toast.makeText(this, "Yay", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, ResultActivity::class.java)
+                            intent.putExtra(Constants.USER_NAME, userName)
+                            intent.putExtra(Constants.CORRECT_ANSWERS, correctAnswers)
+                            intent.putExtra(Constants.TOTAL_QUESTIONS, questions.size)
+                            startActivity(intent)
+                            finish()
                         }
                     }
                 } else {
                     if (questions[index].correctAnswer != selectedOption) {
                         answerView(selectedOption, R.drawable.options_bg_wrong)
+                    } else {
+                        correctAnswers++
                     }
                     answerView(questions[index].correctAnswer, R.drawable.options_bg_correct)
-
                     if (index == questions.size - 1) {
                         btnSubmit?.text = "FINISH"
                     } else {
